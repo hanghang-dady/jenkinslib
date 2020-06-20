@@ -18,7 +18,7 @@ pipeline {
         timestamps()   //日志会有时间
         skipDefaultCheckout()   //在代理指令中，跳过从源代码控制中检出代码。例如： options { skipDefaultCheckout() }
         disableConcurrentBuilds()  //禁止并行
-        timeout(time: 2, unit：'MINUTES') //设置流水线超时时间2分钟
+        timeout(time:2, unit: "MINUTES")   //设置流水线超时时间2分钟
     }
 
     stages {
@@ -26,7 +26,7 @@ pipeline {
         stage('拉取代码'){  //阶段名称
             when { environment name: 'test', value: 'abcd'}
             steps{  //步骤
-                timeout(time:5, unit:"MINUTES"){
+                timeout(time:5, unit: "MINUTES"){
                     script{  //填写运行代码
                         println('获取代码')
                         println("${test}")
