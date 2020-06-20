@@ -1,14 +1,14 @@
 #!groovy
 //Jenkins share Library  共享库
 
-@Library('jenkinslib') _
+@Library('jenkinslib@master') _
 
 def tools = new org.devops.tools()
 
 
-String workspace = /var/jenkins_home/workspace
+String workspace = "/var/jenkins_home/workspace"
 
-pipleine {
+pipeline {
     agent { node { label "master"  //指定节点的标签或者名称 
                    customWorkspace "${workspace}"   //指定运行工作目录（可选）
             }
