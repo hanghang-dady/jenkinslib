@@ -3,7 +3,7 @@
 @Library('jenkinslib@master') _
 
 def build = new org.devops.build()
-def saltstack = new org.devops.saltstack()
+def deploy = new org.devops.saltstack()
 
 String buildType = "${env.buildType}"
 String buildShell = "${env.buildShell}"
@@ -18,7 +18,7 @@ pipeline{
                     build.Build(buildType,buildShell)
 
                     //deploy.SaltDeploy(hosts,func)
-                    saltstack.SaltDeploy("docker_104","test.ping")
+                    deploy.SaltDeploy("docker_104","test.ping")
                 }
             }
         }
