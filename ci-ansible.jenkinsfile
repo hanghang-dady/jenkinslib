@@ -3,7 +3,7 @@
 @Library('jenkinslib@master') _
 
 def build = new org.devops.build()
-def deploy = new org.devops.deploy()
+def deploy = new org.devops.ansible()
 
 String buildType = "${env.buildType}"
 String buildShell = "${env.buildShell}"
