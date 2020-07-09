@@ -8,6 +8,7 @@ def deploy = new org.devops.deploy()
 String buildType = "${env.buildType}"
 String buildShell = "${env.buildShell}"
 String deployHosts = "${env.deployHosts}"
+String deployHost = "${env.deployHost}"
 
 pipeline{
     agent{ node { label "master"}}
@@ -19,7 +20,7 @@ pipeline{
                     build.Build(buildType,buildShell)
                     
                     deploy.SaltDeploy("${deployHosts}", "test.ping")
-                    deploy.AnsibleDeploy("${deployHosts}","-m ping")
+                    deploy.AnsibleDeploy("${deployHost}","-m ping")
                 }
             }
         }
