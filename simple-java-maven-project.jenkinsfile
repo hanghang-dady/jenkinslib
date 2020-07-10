@@ -11,8 +11,8 @@ String buildShell = "${env.buildShell}"
 String deployHosts = "${env.deployHosts}"
 String deployHost = "${env.deployHost}"
 
-String srcUrl = "{env.srcUrl}"
-String branchName = "{env.branchName}"
+String srcUrl = "${env.srcUrl}"
+String branchName = "${env.branchName}"
 
 pipeline{
     agent { node {label "master"}}
