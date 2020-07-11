@@ -22,6 +22,11 @@ pipeline{
             steps{
                 script{
                     
+                    if ("${runOpts}" == GithubPush){
+                        branchName = branch
+                    }
+                    println("${branchName}")
+                    
                     checkout([$class: 'GitSCM', branches: [[name: "${branchName}"]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'c6644c20-0a43-48f0-b5b1-dbcfbf7c90a6', url: "${srcUrl}"]]])
                 }
             }
