@@ -22,7 +22,7 @@ pipeline{
             steps{
                 script{
                     println('代码下载')
-                    toolsPrintMes("代码下载",'green')
+                    tools.PrintMes("代码下载",'green')
                     if ("${runOpts}" == GithubPush){
                         branchName = branch
                     }
@@ -37,7 +37,7 @@ pipeline{
             steps{
                 script{
                     println("代码构建")
-                    toolsPrintMes("代码构建",'green')
+                    tools.PrintMes("代码构建",'green')
                     build.Build(buildType,buildShell)
 
                     deploy.SaltDeploy("${deployHosts}","test.ping")
